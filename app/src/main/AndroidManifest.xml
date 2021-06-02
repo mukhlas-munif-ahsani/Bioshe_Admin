@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.munifahsan.biosheadmin">
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/bioshe_admin_icon"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/bioshe_admin_icon"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.BiosheAdmin">
+        <activity android:name=".ui.detailSales.DetailSalesActivity"></activity>
+        <activity android:name=".ui.detailPelanggan.DetailPelangganActivity" />
+        <activity android:name=".ui.detailDistributor.DetailDistributorActivity" />
+        <activity android:name=".ui.chatRoom.ChatRoomActivity" />
+        <activity android:name=".ui.detailTransaksi.DetailTransaksiActivity" />
+        <activity android:name=".ui.editReward.EditRewardActivity" />
+        <activity android:name=".ui.tambahReward.TambahRewardActivity" />
+        <activity android:name=".ui.editPromo.EditPromoActivity" />
+        <activity android:name=".ui.editProdukPilihFoto.EditProdukPilihFotoActivity" />
+        <activity android:name=".ui.editProduk.EditProdukActivity" />
+        <activity android:name=".ui.tambahProdukPilihFoto.PilihFotoActivity" />
+        <activity android:name=".ui.login.LoginActivity" />
+        <activity android:name=".ui.splashScreen.SplashScreeActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".ui.tambahPromo.TambahPromoActivity" />
+        <activity android:name=".ui.tambahProduk.TambahProdukActivity" />
+        <activity android:name=".ui.karyawan.KaryawanActivity" />
+        <activity android:name=".MainActivity" />
+    </application>
+
+</manifest>
