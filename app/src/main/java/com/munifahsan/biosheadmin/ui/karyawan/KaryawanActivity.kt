@@ -22,6 +22,7 @@ class KaryawanActivity : AppCompatActivity() {
             .add("CUSTOMER", DaftarCustomerFragment::class.java)
             .create()
     )
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityKaryawanBinding.inflate(layoutInflater)

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ui.home.HomeFragment">
+    tools:context=".ui.pageHome.HomeFragment">
 
     <RelativeLayout
         android:id="@+id/rel_toolbar"
@@ -26,10 +26,10 @@
         <androidx.cardview.widget.CardView
             android:id="@+id/notif_icon"
             android:layout_width="40dp"
-            android:layout_marginStart="14dp"
             android:layout_height="40dp"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
+            android:layout_marginStart="14dp"
             android:layout_marginEnd="16dp"
             android:backgroundTint="@color/biru_dasar"
             android:clickable="true"
@@ -79,24 +79,105 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-
             android:layout_height="wrap_content">
 
             <androidx.cardview.widget.CardView
-                android:layout_marginTop="50dp"
                 android:id="@+id/karyawanBtn"
-                android:clickable="true"
-                android:focusable="true"
-                android:foreground="?android:attr/selectableItemBackground"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
                 android:layout_marginStart="24dp"
+                android:layout_marginTop="50dp"
                 android:layout_marginEnd="24dp"
                 android:layout_marginBottom="20dp"
-                android:layout_width="match_parent"
-                android:layout_height="56dp">
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?android:attr/selectableItemBackground">
 
             </androidx.cardview.widget.CardView>
 
         </RelativeLayout>
 
     </androidx.core.widget.NestedScrollView>
+
+    <LinearLayout
+        android:layout_below="@id/rel_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/header"
+            android:layout_width="fill_parent"
+            android:layout_height="64dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="15dp"
+            android:background="#FFF"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/color"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:background="@color/black"
+                android:fontFamily="sans-serif-light"
+                android:gravity="center_vertical"
+                android:text=""
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/clickme"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:fontFamily="sans-serif-light"
+                android:gravity="center_vertical"
+                android:text="clickme"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/expandable"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:background="#FFF"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-light"
+                android:text="hello_world" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-light"
+                android:text="hello_world" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-light"
+                android:text="hello_world" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-light"
+                android:text="hello_world" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-light"
+                android:text="hello_world" />
+
+        </LinearLayout>
+    </LinearLayout>
 </RelativeLayout>

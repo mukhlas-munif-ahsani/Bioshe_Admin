@@ -1,4 +1,4 @@
-package com.munifahsan.biosheadmin.ui.penjualan
+package com.munifahsan.biosheadmin.ui.pagePenjualan
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,18 +6,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.viewpager.widget.ViewPager
-import com.munifahsan.biosheadmin.R
 import com.munifahsan.biosheadmin.databinding.FragmentPenjualanBinding
 import com.munifahsan.biosheadmin.ui.daftarOrderDibayar.DaftarOrderDibayarFragment
 import com.munifahsan.biosheadmin.ui.daftarOrderDikirim.DaftarOrderDikirimFragment
 import com.munifahsan.biosheadmin.ui.daftarOrderDiproses.DaftarOrderDiprosesFragment
 import com.munifahsan.biosheadmin.ui.daftarOrderPending.DaftarOrderPendingFragment
 import com.munifahsan.biosheadmin.ui.daftarOrderSelesai.DaftarOrderSelesaiFragment
-import com.munifahsan.biosheadmin.ui.daftarProduk.DaftarProdukFragment
-import com.munifahsan.biosheadmin.ui.daftarPromo.DaftarPromoFragment
-import com.munifahsan.biosheadmin.ui.daftarReward.DaftarRewardFragment
-import com.munifahsan.biosheadmin.ui.home.HomeFragment
-import com.munifahsan.biosheadmin.ui.produk.ProdukFragment
 import com.ogaclejapan.smarttablayout.utils.v4.FragmentPagerItemAdapter
 import com.ogaclejapan.smarttablayout.utils.v4.FragmentPagerItems
 
@@ -34,7 +28,6 @@ class PenjualanFragment : Fragment() {
         // Inflate the layout for this fragment
         _binding = FragmentPenjualanBinding.inflate(inflater, container, false)
         val view = binding.root
-
 
         val adapter = FragmentPagerItemAdapter(
             childFragmentManager, FragmentPagerItems.with(activity)

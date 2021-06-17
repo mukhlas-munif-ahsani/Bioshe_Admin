@@ -1,4 +1,4 @@
-package com.munifahsan.biosheadmin.ui.produk
+package com.munifahsan.biosheadmin.ui.pageProduk
 
 import android.content.Intent
 import android.os.Bundle
@@ -12,12 +12,9 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.viewpager.widget.ViewPager
 import com.munifahsan.biosheadmin.databinding.FragmentProdukBinding
-import com.munifahsan.biosheadmin.ui.daftarCustomer.DaftarCustomerFragment
-import com.munifahsan.biosheadmin.ui.daftarDistributor.DaftarDistributorFragment
 import com.munifahsan.biosheadmin.ui.daftarProduk.DaftarProdukFragment
 import com.munifahsan.biosheadmin.ui.daftarPromo.DaftarPromoFragment
 import com.munifahsan.biosheadmin.ui.daftarReward.DaftarRewardFragment
-import com.munifahsan.biosheadmin.ui.daftarSales.DaftarSalesFragment
 import com.munifahsan.biosheadmin.ui.tambahProduk.TambahProdukActivity
 import com.munifahsan.biosheadmin.ui.tambahPromo.TambahPromoActivity
 import com.munifahsan.biosheadmin.ui.tambahReward.TambahRewardActivity

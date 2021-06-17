@@ -5,20 +5,27 @@
     android:layout_height="match_parent"
     tools:context=".ui.daftarSales.DaftarSalesFragment">
 
-    <androidx.core.widget.NestedScrollView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvSales"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:paddingTop="4dp"
+        android:paddingBottom="24dp" />
+    <!--    <androidx.core.widget.NestedScrollView-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="match_parent">-->
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+    <!--        <RelativeLayout-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="wrap_content">-->
 
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="2000dp"
-                android:layout_margin="24dp"
-                android:backgroundTint="@color/diamond"/>
-        </RelativeLayout>
-    </androidx.core.widget.NestedScrollView>
+    <!--            <androidx.cardview.widget.CardView-->
+    <!--                android:layout_width="match_parent"-->
+    <!--                android:layout_height="2000dp"-->
+    <!--                android:layout_margin="24dp"-->
+    <!--                android:backgroundTint="@color/diamond"/>-->
+    <!--        </RelativeLayout>-->
+    <!--    </androidx.core.widget.NestedScrollView>-->
 
 </FrameLayout>

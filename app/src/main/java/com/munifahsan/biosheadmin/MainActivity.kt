@@ -1,9 +1,6 @@
 package com.munifahsan.biosheadmin
 
 import android.content.Context
-import android.net.ConnectivityManager
-import android.net.NetworkCapabilities
-import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
@@ -12,16 +9,20 @@ import android.view.Menu
 import android.view.View
 import android.view.Window
 import android.view.WindowManager
+import android.widget.FrameLayout
 import android.widget.Toast
+import androidx.cardview.widget.CardView
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.munifahsan.biosheadmin.databinding.ActivityMainBinding
 import com.munifahsan.biosheadmin.ui.chat.ChatFragment
-import com.munifahsan.biosheadmin.ui.home.HomeFragment
-import com.munifahsan.biosheadmin.ui.lainnya.LainyaFragment
-import com.munifahsan.biosheadmin.ui.penjualan.PenjualanFragment
-import com.munifahsan.biosheadmin.ui.produk.ProdukFragment
+import com.munifahsan.biosheadmin.ui.pageHome.HomeFragment
+import com.munifahsan.biosheadmin.ui.pageLainnya.LainyaFragment
+import com.munifahsan.biosheadmin.ui.pageMitra.MitraFragment
+import com.munifahsan.biosheadmin.ui.pagePenjualan.PenjualanFragment
+import com.munifahsan.biosheadmin.ui.pageProduk.ProdukFragment
 import com.munifahsan.biosheadmin.utils.CheckConection
 
 class MainActivity : AppCompatActivity() {
@@ -29,9 +30,13 @@ class MainActivity : AppCompatActivity() {
 
     lateinit var mainHandler: Handler
     var isConected = false
+
+    private var mBottomSheetEditHargaBehavior: BottomSheetBehavior<*>? = null
+    private var mBottomSheetEditStokBehavior: BottomSheetBehavior<*>? = null
+
     private val updateTextTask = object : Runnable {
         override fun run() {
-            if (CheckConection.isNetworkAvailable(this@MainActivity)){
+            if (CheckConection.isNetworkAvailable(this@MainActivity)) {
                 binding.ofline.visibility = View.GONE
                 isConected = true
                 changeNotifBarColor(this@MainActivity, R.color.biru_dasar)
@@ -53,13 +58,13 @@ class MainActivity : AppCompatActivity() {
                     addFragment(fragment)
                     return@OnNavigationItemSelectedListener true
                 }
-                R.id.itemProduk -> { 
+                R.id.itemProduk -> {
                     val fragment = ProdukFragment.newInstance()
                     addFragment(fragment)
                     return@OnNavigationItemSelectedListener true
                 }
                 R.id.itemChat -> {
-                    val fragment = ChatFragment.newInstance()
+                    val fragment = MitraFragment.newInstance()
                     addFragment(fragment)
                     return@OnNavigationItemSelectedListener true
                 }
@@ -98,9 +103,69 @@ class MainActivity : AppCompatActivity() {
 
         val fragment = HomeFragment.newInstance()
         addFragment(fragment)
+
+        //Bottom sheet edit harga
+        val bottomSheetEditHarga = findViewById<FrameLayout>(R.id.editHargaBottomSheet)
+        mBottomSheetEditHargaBehavior = BottomSheetBehavior.from(bottomSheetEditHarga)
+        (mBottomSheetEditHargaBehavior as BottomSheetBehavior<*>).isDraggable = false
+
+        findViewById<CardView>(R.id.close).setOnClickListener {
+            (mBottomSheetEditHargaBehavior as BottomSheetBehavior<*>).state =
+                BottomSheetBehavior.STATE_COLLAPSED
+            binding.blackBg.visibility = View.GONE
+        }
+
+        //Bottom sheet edit harga
+        val bottomSheetEditStok = findViewById<FrameLayout>(R.id.editStokBottomSheet)
+        mBottomSheetEditStokBehavior = BottomSheetBehavior.from(bottomSheetEditStok)
+        (mBottomSheetEditStokBehavior as BottomSheetBehavior<*>).isDraggable = false
+
+        findViewById<CardView>(R.id.closeStok).setOnClickListener {
+            (mBottomSheetEditStokBehavior as BottomSheetBehavior<*>).state =
+                BottomSheetBehavior.STATE_COLLAPSED
+            binding.blackBg.visibility = View.GONE
+        }
+
+        binding.blackBg.setOnClickListener {
+            (mBottomSheetEditStokBehavior as BottomSheetBehavior<*>).state =
+                BottomSheetBehavior.STATE_COLLAPSED
+            (mBottomSheetEditHargaBehavior as BottomSheetBehavior<*>).state =
+                BottomSheetBehavior.STATE_COLLAPSED
+            binding.blackBg.visibility = View.GONE
+        }
     }
 
-    private fun changeNotifBarColor(context: Context, color: Int){
+    public fun openEditHarga() {
+        (mBottomSheetEditHargaBehavior as BottomSheetBehavior<*>).state =
+            BottomSheetBehavior.STATE_EXPANDED
+        binding.blackBg.visibility = View.VISIBLE
+    }
+
+    public fun openEditStok() {
+        (mBottomSheetEditStokBehavior as BottomSheetBehavior<*>).state =
+            BottomSheetBehavior.STATE_EXPANDED
+        binding.blackBg.visibility = View.VISIBLE
+    }
+
+    override fun onBackPressed() {
+        if ((mBottomSheetEditHargaBehavior as BottomSheetBehavior<*>).state ==
+            BottomSheetBehavior.STATE_EXPANDED
+        ) {
+            (mBottomSheetEditHargaBehavior as BottomSheetBehavior<*>).state =
+                BottomSheetBehavior.STATE_COLLAPSED
+            binding.blackBg.visibility = View.GONE
+        } else if ((mBottomSheetEditStokBehavior as BottomSheetBehavior<*>).state ==
+            BottomSheetBehavior.STATE_EXPANDED
+        ) {
+            (mBottomSheetEditStokBehavior as BottomSheetBehavior<*>).state =
+                BottomSheetBehavior.STATE_COLLAPSED
+            binding.blackBg.visibility = View.GONE
+        } else {
+            super.onBackPressed()
+        }
+    }
+
+    private fun changeNotifBarColor(context: Context, color: Int) {
         /*
         Change status bar color
         */
@@ -116,7 +181,7 @@ class MainActivity : AppCompatActivity() {
         window.statusBarColor = ContextCompat.getColor(context, color)
     }
 
-    private fun showMessage(s: String) {
+    public fun showMessage(s: String) {
         Toast.makeText(this, s, Toast.LENGTH_LONG).show()
     }
 

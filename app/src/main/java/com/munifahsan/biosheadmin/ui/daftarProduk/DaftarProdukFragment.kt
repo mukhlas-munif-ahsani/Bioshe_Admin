@@ -1,5 +1,7 @@
 package com.munifahsan.biosheadmin.ui.daftarProduk
 
+import android.animation.Animator
+import android.animation.ValueAnimator
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.Paint
@@ -8,10 +10,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.LinearLayout
-import android.widget.TextView
-import android.widget.Toast
+import android.view.ViewTreeObserver
+import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import androidx.cardview.widget.CardView
 import androidx.core.content.ContextCompat
@@ -20,6 +20,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.firebase.firestore.FirebaseFirestore
+import com.munifahsan.biosheadmin.MainActivity
 import com.munifahsan.biosheadmin.R
 import com.munifahsan.biosheadmin.databinding.FragmentDaftarProdukBinding
 import com.munifahsan.biosheadmin.models.Produk
@@ -34,8 +35,8 @@ class DaftarProdukFragment : Fragment() {
 
     private var _binding : FragmentDaftarProdukBinding? = null
     private val binding get() = _binding!!
-
-    private var adapter: DaftarProdukFragment.ProductFirestoreRecyclerAdapter? = null
+    lateinit var mAnimator: ValueAnimator
+    private var adapter: ProductFirestoreRecyclerAdapter? = null
 
     var produkId = ""
 
@@ -79,7 +80,7 @@ class DaftarProdukFragment : Fragment() {
     private inner class ProductViewHolder(private val view: View) :
         RecyclerView.ViewHolder(
             view
-        ) {
+        ), ViewTreeObserver.OnPreDrawListener {
 
         fun setProduct(
             itemId: String,
@@ -129,14 +130,32 @@ class DaftarProdukFragment : Fragment() {
                 view.findViewById<TextView>(R.id.textStatus).text = "Nonaktif"
             }
 
+            view.findViewById<RelativeLayout>(R.id.expandMenu).viewTreeObserver.addOnPreDrawListener(this)
+
             view.findViewById<CardView>(R.id.produkCard).setOnClickListener {
+                if (view.findViewById<RelativeLayout>(R.id.expandMenu).visibility == View.GONE){
+                    expand()
+                }else{
+                    collapse()
+                }
+            }
+
+            view.findViewById<CardView>(R.id.editDetail).setOnClickListener {
                 if (CheckConection.isNetworkAvailable(activity!!)){
-                    val inent = Intent(activity, EditProdukActivity::class.java)
-                    inent.putExtra("PRODUK_ID", itemId)
-                    startActivity(inent)
+                    val intent = Intent(activity, EditProdukActivity::class.java)
+                    intent.putExtra("PRODUK_ID", itemId)
+                    startActivity(intent)
                 } else {
                     showMessage("Mohon periksa koneksi internet anda")
                 }
+            }
+
+            view.findViewById<CardView>(R.id.editHarga).setOnClickListener {
+                (activity as MainActivity?)!!.openEditHarga()
+            }
+
+            view.findViewById<CardView>(R.id.editStok).setOnClickListener {
+                (activity as MainActivity?)!!.openEditStok()
             }
 
             view.findViewById<TextView>(R.id.stokProduct).text = "Stok : $stok"
@@ -155,6 +174,73 @@ class DaftarProdukFragment : Fragment() {
 //                    }
 //                }
 //            }
+        }
+
+        private fun expand() {
+            //set Visible
+//            view.findViewById<RelativeLayout>(R.id.expandMenu).visibility = View.VISIBLE
+
+            val finalHeight: Int = view.findViewById<RelativeLayout>(R.id.expandMenu).height
+            val mAnimator: ValueAnimator = slideAnimator(0, 260)
+            mAnimator.addListener(object : Animator.AnimatorListener {
+                override fun onAnimationEnd(animator: Animator) {
+                    //Height=0, but it set visibility to GONE
+
+                }
+
+                override fun onAnimationStart(animator: Animator) {
+                    view.findViewById<RelativeLayout>(R.id.expandMenu).visibility = View.VISIBLE
+                }
+                override fun onAnimationCancel(animator: Animator) {}
+                override fun onAnimationRepeat(animator: Animator) {}
+            })
+
+            /* Remove and used in preDrawListener
+            final int widthSpec = View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED);
+            final int heightSpec = View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED);
+            mLinearLayout.measure(widthSpec, heightSpec);
+            mAnimator = slideAnimator(0, mLinearLayout.getMeasuredHeight());
+            */
+            mAnimator.start()
+        }
+
+        private fun collapse() {
+            val finalHeight: Int = view.findViewById<RelativeLayout>(R.id.expandMenu).height
+            val mAnimator: ValueAnimator = slideAnimator(finalHeight, 0)
+            mAnimator.addListener(object : Animator.AnimatorListener {
+                override fun onAnimationEnd(animator: Animator) {
+                    //Height=0, but it set visibility to GONE
+                    view.findViewById<RelativeLayout>(R.id.expandMenu).visibility = View.GONE
+                }
+
+                override fun onAnimationStart(animator: Animator) {}
+                override fun onAnimationCancel(animator: Animator) {}
+                override fun onAnimationRepeat(animator: Animator) {}
+            })
+            mAnimator.start()
+        }
+
+        private fun slideAnimator(start: Int, end: Int): ValueAnimator {
+            val animator: ValueAnimator = ValueAnimator.ofInt(start, end)
+            animator.addUpdateListener { valueAnimator -> //Update Height
+                val value: Int = valueAnimator.animatedValue as Int
+                val layoutParams: ViewGroup.LayoutParams = view.findViewById<RelativeLayout>(R.id.expandMenu).layoutParams
+                layoutParams.height = value
+                view.findViewById<RelativeLayout>(R.id.expandMenu).layoutParams = layoutParams
+            }
+            return animator
+        }
+
+        override fun onPreDraw(): Boolean {
+            view.findViewById<RelativeLayout>(R.id.expandMenu).viewTreeObserver.removeOnPreDrawListener(this)
+            view.findViewById<RelativeLayout>(R.id.expandMenu).visibility = View.GONE
+
+            val widthSpec = View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED)
+            val heightSpec = View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED)
+            view.findViewById<RelativeLayout>(R.id.expandMenu).measure(widthSpec, heightSpec)
+
+            mAnimator = slideAnimator(0,  view.findViewById<RelativeLayout>(R.id.expandMenu).measuredHeight);
+            return true;
         }
 
     }
@@ -191,7 +277,7 @@ class DaftarProdukFragment : Fragment() {
     }
 
     private fun showDeleteDialog(produkId: String){
-        val builder = AlertDialog.Builder(activity!!)
+        val builder = AlertDialog.Builder(requireActivity())
         builder.setTitle("Hapus produk")
         builder.setMessage("Yakin ingin menghapus produk ini ?")
         builder.setPositiveButton("Ya") { _, _ ->

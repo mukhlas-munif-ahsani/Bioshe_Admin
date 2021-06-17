@@ -61,8 +61,9 @@ class EditProdukPilihFotoActivity : AppCompatActivity() {
 
                         downloadUrl(fileReference)
                     }
-                    .addOnProgressListener { task->
-                        binding.uploadProgress.progress = (100.0 * task.bytesTransferred / task.totalByteCount).toInt()
+                    .addOnProgressListener { task ->
+                        binding.uploadProgress.progress =
+                            (100.0 * task.bytesTransferred / task.totalByteCount).toInt()
                         binding.uploadProgress.visibility = View.VISIBLE
                     }
                     .addOnFailureListener {
@@ -81,28 +82,31 @@ class EditProdukPilihFotoActivity : AppCompatActivity() {
         }
     }
 
-    private fun postImage(imageUri: Uri){
+    private fun postImage(imageUri: Uri) {
 
-        Constants.PRODUK_DRAFT_DB.collection("IMAGES").whereEqualTo("nomor", 0).get().addOnSuccessListener {
-            if (it.isEmpty){
-                val data = mapOf(
-                    "image" to imageUri.toString(),
-                    "nomor" to 0
-                )
-                Constants.PRODUK_DRAFT_DB.collection("IMAGES").document().set(data).addOnCompleteListener {
-                    finish()
-                }
-                Constants.PRODUK_DRAFT_DB.update("thumbnail", imageUri.toString())
-            } else {
-                val data = mapOf(
-                    "image" to imageUri.toString(),
-                    "nomor" to 1
-                )
-                Constants.PRODUK_DRAFT_DB.collection("IMAGES").document().set(data).addOnCompleteListener {
-                    finish()
+        Constants.PRODUK_DRAFT_DB.collection("IMAGES").whereEqualTo("nomor", 0).get()
+            .addOnSuccessListener {
+                if (it.isEmpty) {
+                    val data = mapOf(
+                        "image" to imageUri.toString(),
+                        "nomor" to 0
+                    )
+                    Constants.PRODUK_DRAFT_DB.collection("IMAGES").document().set(data)
+                        .addOnCompleteListener {
+                            finish()
+                        }
+                    Constants.PRODUK_DRAFT_DB.update("thumbnail", imageUri.toString())
+                } else {
+                    val data = mapOf(
+                        "image" to imageUri.toString(),
+                        "nomor" to 1
+                    )
+                    Constants.PRODUK_DRAFT_DB.collection("IMAGES").document().set(data)
+                        .addOnCompleteListener {
+                            finish()
+                        }
                 }
             }
-        }
 
     }
 
@@ -126,7 +130,8 @@ class EditProdukPilihFotoActivity : AppCompatActivity() {
             try {
                 actualImage = FileUtil.from(this, data.data)?.also {
                     binding.image.setImageBitmap(loadBitmap(it))
-                    binding.textSize.text = String.format("Size : %s", getReadableFileSize(it.length()))
+                    binding.textSize.text =
+                        String.format("Size : %s", getReadableFileSize(it.length()))
                     //clearImage()
                 }
                 customCompressImage()
@@ -136,7 +141,7 @@ class EditProdukPilihFotoActivity : AppCompatActivity() {
             }
         }
 
-        if (resultCode == RESULT_CANCELED){
+        if (resultCode == RESULT_CANCELED) {
             finish()
         }
     }
@@ -175,7 +180,7 @@ class EditProdukPilihFotoActivity : AppCompatActivity() {
         }
     }
 
-    private fun showMessage(msg: String){
+    private fun showMessage(msg: String) {
         Toast.makeText(this, msg, Toast.LENGTH_LONG).show()
     }
 
