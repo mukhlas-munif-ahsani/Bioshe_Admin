@@ -3,6 +3,7 @@
     package="com.munifahsan.biosheadmin">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
 
     <application
         android:allowBackup="true"
@@ -11,7 +12,9 @@
         android:roundIcon="@drawable/bioshe_admin_icon"
         android:supportsRtl="true"
         android:theme="@style/Theme.BiosheAdmin">
-        <activity android:name=".ui.detailSales.DetailSalesActivity"></activity>
+        <activity android:name=".ui.detailPermitaanDistributor.DetailPermintaanDistributorActivity"></activity>
+        <activity android:name=".ui.pilihDistributorPelanggan.PilihDistributorPelangganActivity" />
+        <activity android:name=".ui.detailSales.DetailSalesActivity" />
         <activity android:name=".ui.detailPelanggan.DetailPelangganActivity" />
         <activity android:name=".ui.detailDistributor.DetailDistributorActivity" />
         <activity android:name=".ui.chatRoom.ChatRoomActivity" />

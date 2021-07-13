@@ -12,5 +12,4 @@
         android:clipToPadding="false"
         android:paddingTop="4dp"
         android:paddingBottom="24dp" />
-
 </FrameLayout>

@@ -7,21 +7,21 @@
 
     <item
         android:id="@+id/itemProduk"
-
+        android:icon="@drawable/state_bot_nav_ic_produk"
         android:title="Produk" />
 
     <item
         android:id="@+id/itemChat"
-        android:icon="@drawable/state_bot_nav_ic_chat"
+        android:icon="@drawable/state_bot_nav_ic_akun"
         android:title="Mitra" />
 
     <item
         android:id="@+id/itemPenjualan"
-
+        android:icon="@drawable/state_bot_nav_ic_penjualan"
         android:title="Penjualan" />
 
     <item
         android:id="@+id/itemLiannya"
-
+        android:icon="@drawable/state_bot_nav_ic_lainlain"
         android:title="Lainnya" />
 </menu>

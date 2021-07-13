@@ -18,7 +18,6 @@ import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
 import com.munifahsan.biosheadmin.R
-import com.munifahsan.biosheadmin.databinding.FragmentDaftarOrderDIbayarBinding
 import com.munifahsan.biosheadmin.databinding.FragmentDaftarOrderSelesaiBinding
 import com.munifahsan.biosheadmin.models.Orders
 import com.munifahsan.biosheadmin.ui.detailTransaksi.DetailTransaksiActivity
@@ -70,10 +69,10 @@ class DaftarOrderSelesaiFragment : Fragment() {
         val rootRef = FirebaseFirestore.getInstance()
         val query = rootRef.collection("ORDERS")
             .whereEqualTo("membayar", true)
-            .whereEqualTo("dibayar", false)
-            .whereEqualTo("diproses", false)
-            .whereEqualTo("dikirim", false)
-            .whereEqualTo("selesaiDikirim", false)
+            .whereEqualTo("dibayar", true)
+            .whereEqualTo("diproses", true)
+            .whereEqualTo("dikirim", true)
+            .whereEqualTo("selesaiDikirim", true)
             .whereEqualTo( "selesaiDiterima", false)
             .orderBy("orderDate", Query.Direction.DESCENDING)
         val options = FirestoreRecyclerOptions

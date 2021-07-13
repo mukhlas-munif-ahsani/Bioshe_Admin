@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:id="@+id/fragment_biodata_distributor"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.biodataDistributor.BiodataDistributorFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:id="@+id/relEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="14dp">
+
+                <TextView
+                    android:id="@+id/judulEmail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="14dp"
+                    android:layout_marginTop="4dp"
+                    android:text="E-mail"
+                    android:textSize="12dp" />
+
+                <TextView
+                    android:id="@+id/email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/judulEmail"
+                    android:layout_marginStart="14dp"
+                    android:text="MukhlasMunifAhsani@gg.com"
+                    android:textColor="@color/black" />
+
+                <com.facebook.shimmer.ShimmerFrameLayout
+                    android:id="@+id/emailShimmer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/judulEmail"
+                    android:layout_marginStart="14dp"
+                    android:layout_marginTop="2dp">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="90dp"
+                        android:layout_height="14dp"
+                        android:backgroundTint="@color/grey"
+                        app:cardElevation="0dp" />
+                </com.facebook.shimmer.ShimmerFrameLayout>
+
+                <RelativeLayout
+                    android:id="@+id/emailBtn"
+                    android:layout_width="70dp"
+                    android:layout_height="50dp"
+                    android:layout_alignParentEnd="true"
+                    android:background="?android:attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/ic_baseline_email"
+                        app:tint="@color/biru_dasar" />
+                </RelativeLayout>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/relNama"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/relEmail"
+                android:layout_marginTop="14dp">
+
+                <TextView
+                    android:id="@+id/judulNama"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="14dp"
+                    android:layout_marginTop="4dp"
+                    android:text="Nama"
+                    android:textSize="12dp" />
+
+                <TextView
+                    android:id="@+id/nama"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/judulNama"
+                    android:layout_marginStart="14dp"
+                    android:text="Mukhlas Munif Ahsani"
+                    android:textColor="@color/black" />
+
+                <com.facebook.shimmer.ShimmerFrameLayout
+                    android:id="@+id/namaShimmer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/judulNama"
+                    android:layout_marginStart="14dp"
+                    android:layout_marginTop="2dp">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="90dp"
+                        android:layout_height="14dp"
+                        android:backgroundTint="@color/grey"
+                        app:cardElevation="0dp" />
+                </com.facebook.shimmer.ShimmerFrameLayout>
+
+                <RelativeLayout
+                    android:id="@+id/chatBtn"
+                    android:layout_width="70dp"
+                    android:layout_height="50dp"
+                    android:layout_alignParentEnd="true"
+                    android:background="?android:attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/ic_chat_active" />
+                </RelativeLayout>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/relNik"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/relNama"
+                android:layout_marginTop="14dp">
+
+                <TextView
+                    android:id="@+id/judulNik"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="14dp"
+                    android:layout_marginTop="4dp"
+                    android:text="NIK"
+                    android:textSize="12dp" />
+
+                <TextView
+                    android:id="@+id/nik"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/judulNik"
+                    android:layout_marginStart="14dp"
+                    android:text="242143"
+                    android:textColor="@color/black" />
+
+                <com.facebook.shimmer.ShimmerFrameLayout
+                    android:id="@+id/nikShimmer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/judulNik"
+                    android:layout_marginStart="14dp"
+                    android:layout_marginTop="2dp">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="90dp"
+                        android:layout_height="14dp"
+                        android:backgroundTint="@color/grey"
+                        app:cardElevation="0dp" />
+                </com.facebook.shimmer.ShimmerFrameLayout>
+
+                <RelativeLayout
+                    android:id="@+id/nikBtn"
+                    android:layout_width="70dp"
+                    android:layout_height="50dp"
+                    android:layout_alignParentEnd="true"
+                    android:background="?android:attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/ic_chat_active" />
+                </RelativeLayout>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/relDaerah"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/relNik"
+                android:layout_marginTop="14dp">
+
+                <TextView
+                    android:id="@+id/judulDaerah"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="14dp"
+                    android:layout_marginTop="4dp"
+                    android:text="Daerah"
+                    android:textSize="12dp" />
+
+                <TextView
+                    android:id="@+id/daerah"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/judulDaerah"
+                    android:layout_marginStart="14dp"
+                    android:text="242143"
+                    android:textColor="@color/black" />
+
+                <com.facebook.shimmer.ShimmerFrameLayout
+                    android:id="@+id/daerahShimmer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/judulDaerah"
+                    android:layout_marginStart="14dp"
+                    android:layout_marginTop="2dp">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="90dp"
+                        android:layout_height="14dp"
+                        android:backgroundTint="@color/grey"
+                        app:cardElevation="0dp" />
+                </com.facebook.shimmer.ShimmerFrameLayout>
+
+                <RelativeLayout
+                    android:id="@+id/daerahBtn"
+                    android:layout_width="70dp"
+                    android:layout_height="50dp"
+                    android:visibility="invisible"
+                    android:layout_alignParentEnd="true"
+                    android:background="?android:attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/ic_chat_active" />
+                </RelativeLayout>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/relAlamat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/relDaerah"
+                android:layout_marginTop="14dp">
+
+                <TextView
+                    android:id="@+id/judulAlamat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="14dp"
+                    android:layout_marginTop="4dp"
+                    android:text="Alamat Lengkap"
+                    android:textSize="12dp" />
+
+                <TextView
+                    android:id="@+id/alamat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/judulAlamat"
+                    android:layout_marginStart="14dp"
+                    android:text="adsgjf"
+                    android:textColor="@color/black" />
+
+                <com.facebook.shimmer.ShimmerFrameLayout
+                    android:id="@+id/alamatShimmer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/judulAlamat"
+                    android:layout_marginStart="14dp"
+                    android:layout_marginTop="2dp">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="90dp"
+                        android:layout_height="14dp"
+                        android:backgroundTint="@color/grey"
+                        app:cardElevation="0dp" />
+                </com.facebook.shimmer.ShimmerFrameLayout>
+
+                <RelativeLayout
+                    android:id="@+id/alamatBtn"
+                    android:layout_width="70dp"
+                    android:layout_height="50dp"
+                    android:visibility="invisible"
+                    android:layout_alignParentEnd="true"
+                    android:background="?android:attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/ic_chat_active" />
+                </RelativeLayout>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/relNoHp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/relAlamat"
+                android:layout_marginTop="14dp">
+
+                <TextView
+                    android:id="@+id/judulNoHp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="14dp"
+                    android:layout_marginTop="4dp"
+                    android:text="No Hp"
+                    android:textSize="12dp" />
+
+                <TextView
+                    android:id="@+id/noHp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/judulNoHp"
+                    android:layout_marginStart="14dp"
+                    android:text="242143"
+                    android:textColor="@color/black" />
+
+                <com.facebook.shimmer.ShimmerFrameLayout
+                    android:id="@+id/noHpShimmer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/judulNoHp"
+                    android:layout_marginStart="14dp"
+                    android:layout_marginTop="2dp">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="90dp"
+                        android:layout_height="14dp"
+                        android:backgroundTint="@color/grey"
+                        app:cardElevation="0dp" />
+                </com.facebook.shimmer.ShimmerFrameLayout>
+
+                <RelativeLayout
+                    android:id="@+id/noHpBtn"
+                    android:layout_width="70dp"
+                    android:layout_height="50dp"
+                    android:layout_alignParentEnd="true"
+                    android:background="?android:attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/ic_chat_active" />
+                </RelativeLayout>
+            </RelativeLayout>
+
+        </RelativeLayout>
+    </ScrollView>
+</FrameLayout>

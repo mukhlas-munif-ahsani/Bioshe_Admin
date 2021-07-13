@@ -189,5 +189,4 @@
                 app:tint="@color/white" />
         </androidx.cardview.widget.CardView>
     </RelativeLayout>
-
 </RelativeLayout>

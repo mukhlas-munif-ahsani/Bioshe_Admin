@@ -100,16 +100,3 @@ class TambahPromoRepository(val mListener: TambahPromoContract.Listener): Tambah
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-

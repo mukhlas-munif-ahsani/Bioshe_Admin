@@ -151,11 +151,11 @@ class DaftarProdukFragment : Fragment() {
             }
 
             view.findViewById<CardView>(R.id.editHarga).setOnClickListener {
-                (activity as MainActivity?)!!.openEditHarga()
+                (activity as MainActivity?)!!.openEditHarga(itemId, namaProduct, harga)
             }
 
             view.findViewById<CardView>(R.id.editStok).setOnClickListener {
-                (activity as MainActivity?)!!.openEditStok()
+                (activity as MainActivity?)!!.openEditStok(itemId, namaProduct, stok)
             }
 
             view.findViewById<TextView>(R.id.stokProduct).text = "Stok : $stok"
@@ -307,7 +307,6 @@ class DaftarProdukFragment : Fragment() {
     }
 
     companion object {
-
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
             DaftarProdukFragment().apply {

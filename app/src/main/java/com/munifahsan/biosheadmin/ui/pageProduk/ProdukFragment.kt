@@ -30,7 +30,7 @@ class ProdukFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View? {
         // Inflate the layout for this fragment
         _binding = FragmentProdukBinding.inflate(inflater, container, false)
@@ -59,15 +59,15 @@ class ProdukFragment : Fragment() {
         }
 
         binding.addItem.setOnClickListener {
-            if (CheckConection.isNetworkAvailable(activity!!)){
+            if (CheckConection.isNetworkAvailable(requireActivity())) {
                 when (pagePosition) {
-                    0 ->{
+                    0 -> {
                         startActivity(Intent(activity, TambahProdukActivity::class.java))
                     }
-                    1 ->{
+                    1 -> {
                         startActivity(Intent(activity, TambahPromoActivity::class.java))
                     }
-                    2 ->{
+                    2 -> {
                         startActivity(Intent(activity, TambahRewardActivity::class.java))
                     }
                 }
@@ -92,23 +92,23 @@ class ProdukFragment : Fragment() {
             override fun onPageScrolled(
                 position: Int,
                 positionOffset: Float,
-                positionOffsetPixels: Int
+                positionOffsetPixels: Int,
             ) {
             }
 
             override fun onPageSelected(position: Int) {
                 when (position) {
-                    0 ->{
+                    0 -> {
                         binding.toolbarTitle.text = "Daftar Produk"
                         binding.addItemTitle.text = "Tambah Produk"
                         pagePosition = position
                     }
-                    1 ->{
+                    1 -> {
                         binding.toolbarTitle.text = "Daftar Promo"
                         binding.addItemTitle.text = "Tambah Promo"
                         pagePosition = position
                     }
-                    2 ->{
+                    2 -> {
                         binding.toolbarTitle.text = "Daftar Reward"
                         binding.addItemTitle.text = "Tambah Reward"
                         pagePosition = position

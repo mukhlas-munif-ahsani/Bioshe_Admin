@@ -109,7 +109,5 @@
                 android:textColor="@color/biru_dasar"
                 android:textSize="10sp" />
         </androidx.cardview.widget.CardView>
-
     </RelativeLayout>
-
 </androidx.cardview.widget.CardView>

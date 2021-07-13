@@ -174,6 +174,4 @@ class EditPromoRepository(val mListener: EditPromoContract.Listener) :
             mListener.updateKeteranganListener()
         }
     }
-
-
 }

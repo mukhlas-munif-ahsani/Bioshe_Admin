@@ -127,14 +127,7 @@ class DaftarOrderDibayarFragment : Fragment() {
         fun setStatus(status: String) {
             val statusTxt = view.findViewById<TextView>(R.id.status)
             val statusCard = view.findViewById<CardView>(R.id.statusCard)
-//            if (status == "MENUNGGU PEMBAYARAN"){
-//                statusCard.setCardBackgroundColor(Color.parseColor("#F8CAB6"))
-//                statusTxt.setTextColor(Color.parseColor("#EA5411"))
-//            } else {
-//                statusCard.setCardBackgroundColor(Color.parseColor("#B7DDF9"))
-//                statusTxt.setTextColor(Color.parseColor("#118EEA"))
-//            }
-//            statusTxt.text = status
+
             statusTxt.text = "DIBAYAR"
             statusCard.setCardBackgroundColor(ContextCompat.getColor(activity!!, R.color.biru_dasar))
             statusTxt.setTextColor(ContextCompat.getColor(activity!!, R.color.white))

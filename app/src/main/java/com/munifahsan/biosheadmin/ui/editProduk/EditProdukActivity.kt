@@ -595,5 +595,4 @@ class EditProdukActivity : AppCompatActivity(), EditProdukContract.View {
         }
         return isValid
     }
-
 }

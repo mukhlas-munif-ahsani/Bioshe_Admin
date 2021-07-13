@@ -23,6 +23,35 @@ class DetailPelangganPresenter(val mView: DetailPelangganContract.View) :
         mView.hideAlamatOutlet()
     }
 
+    override fun getPointsListener(points: Int){
+        mView.showBioshePoints(points.toString())
+    }
+
+    override fun getTotalBelanjaListener(total: Int){
+        mView.showTotalBelanja(total)
+    }
+
+    override fun getTagihanListener(tagihan: Int){
+        mView.showTagihan(tagihan)
+    }
+
+    override fun getDataSalesListener(nama: String, id: String, photoUrl: String, a:String, b:String){
+        mView.showSales(nama, id, photoUrl, a, b)
+    }
+
+    override fun getDataDistributorListener(nama: String, id: String, photoUrl: String, a:String, b:String){
+        if (nama == "null"){
+            mView.hideDistributor()
+        }else{
+            mView.showDistributor(nama, id, photoUrl, a, b)
+        }
+
+    }
+
+    override fun getLoyaltiListener(loyalti: String, id: String){
+        mView.showLoyalti(loyalti, id)
+    }
+
     override fun getFotoListener(foto: String) {
         if (foto != "" || foto.isNotEmpty()) {
             mView.showfoto(foto)
@@ -108,5 +137,4 @@ class DetailPelangganPresenter(val mView: DetailPelangganContract.View) :
             mView.showAlamatOutlet(alamat)
         }
     }
-
 }

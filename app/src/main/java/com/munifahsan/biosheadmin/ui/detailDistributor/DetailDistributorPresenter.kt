@@ -12,6 +12,10 @@ class DetailDistributorPresenter(private val mView: DetailDistributorContract.Vi
 
         mView.hideEmail()
         mView.hideNama()
+        mView.hideNik()
+        mView.hideDaerah()
+        mView.hideAlamat()
+        mView.hideNohp()
     }
 
     override fun getFotoListener(foto: String) {
@@ -33,6 +37,38 @@ class DetailDistributorPresenter(private val mView: DetailDistributorContract.Vi
             mView.showNama("-")
         } else {
             mView.showNama(nama)
+        }
+    }
+
+    override fun getNikListener(nik: String){
+        if (nik == "" || nik == "null") {
+            mView.showNik("-")
+        } else {
+            mView.showNik(nik)
+        }
+    }
+
+    override fun getDaerahListener(daerah: String){
+        if (daerah == "" || daerah== "null") {
+            mView.showDaerah("-")
+        } else {
+            mView.showDaerah(daerah)
+        }
+    }
+
+    override fun getAlamatListener(alamat: String){
+        if (alamat == "" || alamat == "null") {
+            mView.showAlamat("-")
+        } else {
+            mView.showAlamat(alamat)
+        }
+    }
+
+    override fun getNoHpListener(noHp: String){
+        if (noHp == "" || noHp == "null") {
+            mView.showNoHp("-")
+        } else {
+            mView.showNoHp(noHp)
         }
     }
 }

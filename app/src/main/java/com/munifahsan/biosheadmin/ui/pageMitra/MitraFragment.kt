@@ -67,7 +67,6 @@ class MitraFragment : Fragment() {
     }
 
     companion object {
-
         @JvmStatic
         fun newInstance():
                 MitraFragment {

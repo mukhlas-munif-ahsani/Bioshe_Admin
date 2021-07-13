@@ -171,11 +171,10 @@ class DaftarPromoFragment : Fragment() {
     }
 
     private fun showMessage(s: String) {
-        Toast.makeText(activity!!, s, Toast.LENGTH_LONG).show()
+        Toast.makeText(requireActivity(), s, Toast.LENGTH_LONG).show()
     }
 
     companion object {
-
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
             DaftarPromoFragment().apply {

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/white"
     tools:context=".ui.pagePenjualan.PenjualanFragment">
 
@@ -35,9 +35,9 @@
                     android:layout_marginEnd="14dp"
                     android:backgroundTint="@color/biru_dasar"
                     android:clickable="true"
-                    android:visibility="gone"
                     android:focusable="true"
                     android:foreground="?android:attr/selectableItemBackground"
+                    android:visibility="gone"
                     app:cardCornerRadius="20dp"
                     app:cardElevation="0dp">
 
@@ -49,8 +49,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_margin="8dp"
-                            app:tint="@color/white"
-                            android:src="@drawable/ic_baseline_add" />
+                            android:src="@drawable/ic_baseline_add"
+                            app:tint="@color/white" />
 
                     </RelativeLayout>
 
@@ -60,9 +60,9 @@
                     android:id="@+id/toolbarTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
                     android:layout_centerVertical="true"
                     android:layout_marginStart="14dp"
-                    android:layout_alignParentStart="true"
                     android:text="Daftar Penjualan"
                     android:textColor="@color/white"
                     android:textSize="18sp"
@@ -100,23 +100,23 @@
 
     <RelativeLayout
         android:id="@+id/addItemBg"
-        android:visibility="gone"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:visibility="gone" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/addItem"
         android:layout_width="wrap_content"
         android:layout_height="40dp"
-        android:layout_marginTop="8dp"
         android:layout_alignParentEnd="true"
         android:layout_marginStart="10dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="14dp"
         android:backgroundTint="@color/white"
         android:clickable="true"
-        android:visibility="gone"
         android:focusable="true"
         android:foreground="?android:attr/selectableItemBackground"
+        android:visibility="gone"
         app:cardCornerRadius="4dp"
         app:cardElevation="0dp">
 
@@ -126,17 +126,14 @@
 
             <TextView
                 android:id="@+id/addItemTitle"
-                android:layout_marginStart="14dp"
-                android:layout_marginEnd="14dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Tambah Produk"
-                android:alpha="0.7"
                 android:layout_centerInParent="true"
-                android:textColor="@color/black"/>
-
+                android:layout_marginStart="14dp"
+                android:layout_marginEnd="14dp"
+                android:alpha="0.7"
+                android:text="Tambah Produk"
+                android:textColor="@color/black" />
         </RelativeLayout>
-
     </androidx.cardview.widget.CardView>
-
 </RelativeLayout>

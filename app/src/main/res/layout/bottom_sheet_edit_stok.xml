@@ -9,9 +9,9 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         android:clickable="true"
-        android:layout_height="wrap_content"
         android:focusable="true">
 
         <androidx.cardview.widget.CardView
@@ -24,16 +24,19 @@
                 android:layout_height="wrap_content">
 
                 <TextView
+                    android:id="@+id/judulBS"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="14dp"
                     android:layout_marginTop="14dp"
+                    android:alpha="0.7"
+                    android:text="Ubah Stok"
+                    android:textColor="@color/black"
                     android:textSize="18dp"
-                    android:textStyle="bold"
-                    android:text="Atur Stok" />
+                    android:textStyle="bold" />
 
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/closeStok"
+                    android:id="@+id/close"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
@@ -56,60 +59,138 @@
                 </androidx.cardview.widget.CardView>
 
                 <TextView
+                    android:id="@+id/judulProduk"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/judulBS"
+                    android:layout_marginStart="14dp"
+                    android:layout_marginTop="14dp"
+                    android:alpha="0.5"
+                    android:text="Untuk Produk"
+                    android:textColor="@color/black"
+                    android:textSize="12dp"
+                    android:textStyle="bold" />
+
+                <TextView
                     android:id="@+id/namaProduk"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/closeStok"
+                    android:layout_below="@id/judulProduk"
                     android:layout_marginStart="14dp"
-                    android:layout_marginTop="4dp"
-                    android:textSize="14dp"
-                    android:textStyle="normal"
-                    android:text="Nama Produk" />
+                    android:layout_marginTop="0dp"
+                    android:layout_marginEnd="14dp"
+                    android:alpha="0.7"
+                    android:text="Nama Produk"
+                    android:textColor="@color/black"
+                    android:textSize="15dp"
+                    android:textStyle="bold" />
 
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/stokProdukLay"
+                <RelativeLayout
+                    android:id="@+id/relJumlahStok"
                     android:layout_width="match_parent"
+                    android:layout_marginTop="24dp"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/namaProduk"
-                    android:layout_marginStart="14dp"
-                    android:layout_marginTop="24dp"
-                    android:layout_marginEnd="14dp"
-                    android:alpha="0.6"
-                    android:hint="Stok produk"
-                    android:textColorHint="@color/black"
-                    app:boxBackgroundColor="@color/white"
-                    app:hintTextColor="@color/black">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/stokProduk"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="-16dp"
-                        android:inputType="number"
-                        android:textColor="@color/black" />
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/simpanStok"
-                    android:layout_width="match_parent"
-                    android:layout_marginTop="14dp"
-                    android:layout_height="40dp"
-                    android:backgroundTint="@color/biru_dasar"
-                    android:layout_below="@id/stokProdukLay"
-                    android:layout_marginStart="14dp"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:foreground="?android:attr/selectableItemBackground"
-                    android:layout_marginEnd="14dp"
-                    android:layout_marginBottom="60dp">
+                    android:layout_alignParentEnd="true">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="14dp"
+                        android:layout_marginTop="0dp"
+                        android:alpha="0.7"
+                        android:textStyle="bold"
+                        android:text="Jumlah Stok"
+                        android:textColor="@color/black" />
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/remove"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginEnd="0dp"
+                        android:layout_marginBottom="4dp"
+                        android:layout_toStartOf="@id/stokProdukLay"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?android:attr/selectableItemBackground">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_margin="8dp"
+                            android:src="@drawable/ic_baseline_remove" />
+
+                    </androidx.cardview.widget.CardView>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/stokProdukLay"
+                        android:layout_width="wrap_content"
+                        android:layout_height="51dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginBottom="4dp"
+                        android:layout_toStartOf="@+id/add"
+                        android:alpha="0.6"
+                        android:textColorHint="@color/black"
+                        app:boxBackgroundColor="@color/white"
+                        app:hintTextColor="@color/black">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/jumlahStok"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:inputType="number"
+                            android:text="0"
+                            android:textColor="@color/black" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/add"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginEnd="14dp"
+                        android:layout_marginBottom="4dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?android:attr/selectableItemBackground">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_margin="8dp"
+                            android:src="@drawable/ic_baseline_add" />
+
+                    </androidx.cardview.widget.CardView>
+                </RelativeLayout>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/simpanStok"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_below="@id/relJumlahStok"
+                    android:layout_marginStart="14dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginEnd="14dp"
+                    android:layout_marginBottom="50dp"
+                    android:backgroundTint="@color/biru_dasar"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?android:attr/selectableItemBackground">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
                         android:text="SIMPAN"
-                        android:textColor="@color/white"
-                        android:layout_gravity="center"/>
+                        android:textStyle="bold"
+                        android:textColor="@color/white" />
                 </androidx.cardview.widget.CardView>
 
             </RelativeLayout>
@@ -121,7 +202,6 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="20dp"
-        android:background="@color/white"
-        android:layout_gravity="bottom"/>
-
+        android:layout_gravity="bottom"
+        android:background="@color/white" />
 </FrameLayout>

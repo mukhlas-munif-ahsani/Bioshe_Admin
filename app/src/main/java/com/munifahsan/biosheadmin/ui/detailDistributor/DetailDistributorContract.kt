@@ -7,6 +7,14 @@ interface DetailDistributorContract {
         fun hideEmail()
         fun showNama(nama: String)
         fun hideNama()
+        fun showNik(nik: String)
+        fun hideNik()
+        fun showDaerah(daerah: String)
+        fun hideDaerah()
+        fun showAlamat(alamat: String)
+        fun hideAlamat()
+        fun showNoHp(no: String)
+        fun hideNohp()
     }
     interface Presenter{
         fun getData(salesId: String)
@@ -18,5 +26,9 @@ interface DetailDistributorContract {
         fun getFotoListener(foto: String)
         fun getEmailListener(email: String)
         fun getNamaListener(nama: String)
+        fun getAlamatListener(alamat: String)
+        fun getNoHpListener(noHp: String)
+        fun getDaerahListener(daerah: String)
+        fun getNikListener(nik: String)
     }
 }

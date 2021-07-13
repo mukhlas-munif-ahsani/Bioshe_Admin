@@ -30,4 +30,6 @@
     <color name="diamond_muda">#F1F9FF</color>
 
     <color name="green">#03C5C5</color>
+
+    <color name="transparent">#00000000</color>
 </resources>
